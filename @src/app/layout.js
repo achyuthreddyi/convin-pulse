@@ -13,13 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Convin Pulse",
-  description: "Understand your customers better",
-  icons: {
-    icon: {
-      url: "/favicon.svg",
-      type: "image/svg+xml",
-    },
-  },
+  description: "Convin Pulse Application",
 };
 
 export default function RootLayout({ children }) {
@@ -30,4 +24,4 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}
+} 
