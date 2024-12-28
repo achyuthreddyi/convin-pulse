@@ -1,9 +1,10 @@
-export default function Sidebar() {
+export default function Sidebar({ onNavigate, currentView }) {
   const navItems = [
-    { name: 'Dashboard', href: '/' },
-    { name: 'Analytics', href: '/analytics' },
-    { name: 'Reports', href: '/reports' },
-    { name: 'Settings', href: '/settings' },
+    { name: 'Dashboard', id: 'dashboard' },
+    { name: 'Customers', id: 'customers' },
+    { name: 'Analytics', id: 'analytics' },
+    { name: 'Reports', id: 'reports' },
+    { name: 'Settings', id: 'settings' },
   ];
 
   return (
@@ -11,13 +12,15 @@ export default function Sidebar() {
       <nav className="p-4">
         <ul className="space-y-2">
           {navItems.map((item) => (
-            <li key={item.name}>
-              <a
-                href={item.href}
-                className="block px-4 py-2 rounded-md hover:bg-gray-100 transition-colors"
+            <li key={item.id}>
+              <button
+                onClick={() => onNavigate(item.id)}
+                className={`w-full text-left px-4 py-2 rounded-md hover:bg-gray-100 transition-colors ${
+                  currentView === item.id ? 'bg-gray-100' : ''
+                }`}
               >
                 {item.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
